@@ -1,0 +1,20 @@
+[package]
+name = "service-status"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.57"
+atty = "0.2.14"
+clap = { version = "3.1.0", features = ["derive", "env", "unicode", "wrap_help"] }
+colored_json = "2.1.0"
+comfy-table = "5.0.1"
+futures = "0.3.21"
+shadow-rs = "0.11"
+strum = "0.24.0"
+strum_macros = "0.24.0"
+thiserror = "1.0.31"
+tokio = { version = "1.18.2", features = ["rt-multi-thread"] }
+zbus = { version = "2.2.0", features = ["tokio"] }
