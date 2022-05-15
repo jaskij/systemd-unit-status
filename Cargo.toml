@@ -2,8 +2,7 @@
 name = "service-status"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "EPL-2.0"
 
 [dependencies]
 anyhow = "1.0.57"
@@ -12,6 +11,8 @@ clap = { version = "3.1.0", features = ["derive", "env", "unicode", "wrap_help"]
 colored_json = "2.1.0"
 comfy-table = "5.0.1"
 futures = "0.3.21"
+humantime = "2.1.0"
+libc = "0.2.125"
 shadow-rs = "0.11"
 strum = "0.24.0"
 strum_macros = "0.24.0"
