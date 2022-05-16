@@ -15,11 +15,13 @@ pub(crate) enum OutpuType {
 #[derive(Args, Clone, Debug)]
 pub(crate) struct PrintConfig {
     #[clap(short = 'c', long = "color")]
-    /// Force colored output.
+    /// Force colored output
     force_color: bool,
 
     #[clap(short = 't', long, arg_enum)]
-    /// Output type, defaults to table for TTY, JSON otherwise
+    /// Output type
+    ///
+    /// Defaults to table for TTY, JSON otherwise
     output_type: Option<OutpuType>,
 }
 

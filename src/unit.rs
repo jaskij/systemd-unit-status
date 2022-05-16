@@ -54,16 +54,20 @@ pub(crate) struct UnitInfo {
     pub(crate) time_since_state_change: Duration,
 }
 
-pub(crate) async fn get_info(
+pub(crate) async fn get_path(
     unit_name: &str,
-    dbus_connection: &zbus::Connection,
     systemd_proxy: &systemd::ManagerProxy<'_>,
+) -> zbus::Result<zbus::zvariant::OwnedObjectPath> {
+    systemd_proxy.get_unit(unit_name).await
+}
+
+pub(crate) async fn get_info(
+    unit_path: zbus::zvariant::OwnedObjectPath,
+    dbus_connection: &zbus::Connection,
     current_clock_monotonic_usec: u64,
 ) -> Result<UnitInfo, zbus::Error> {
-    let path = systemd_proxy.get_unit(unit_name).await?;
-
     let unit_proxy = UnitProxy::builder(dbus_connection)
-        .path(path)?
+        .path(unit_path)?
         .build()
         .await?;
 
